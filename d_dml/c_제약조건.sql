@@ -47,7 +47,7 @@ create table employees (
 
 insert into `employees`
 value
-	(1, '불멍이', 30),
+	(1, null, 30),
 	(2, '전기돌이', 20),
 -- 	(3, '바람둥이', 10),
 	(4, '물렁이', 30);
@@ -56,7 +56,13 @@ value
 insert into `employees`
 value
 	(5, '독덩이', null); -- Check 제약 조건은 null 여부 확인 X
-    
+
+update `employees`
+set name = '불멍이'
+where employee_id = 1;
+
+select * from `employees`;
+
 /* 	5. NOT NULL 제약 조건
 	: 특정 열에 NULL 값을 허용하지 X
 	- 비워질 수 x
@@ -78,6 +84,7 @@ value
 	: 테이블의 열에 값이 입력되지 않으면 자동으로 기본값을넣어주는 제약 조건
     - 선택적 필드에 대한 입력을 단순환 (데이터 무결성 유지)
 */
+select * from `contacts`;
 
 create table `carts` (
 	cart_id bigint primary key,
