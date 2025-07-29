@@ -37,7 +37,7 @@
 	3) SQL 언어를 사용하느 MySQL 사용
 		- 오라클 사에서 제공하는 데이터베이스 관리 소프트웨어
 */
-	===================================================
+-- ===================================================
 /*
     MySQL 설치를 위한 컴퓨터 환경
 	- 운영체제: 64bit, Window 10 이상 
@@ -128,6 +128,7 @@
 -- Next > Password 입력란에 앞서 설정한 비밀번호를 입력 > Check 버튼 클릭 > Next > Execute > 설치 완료된 항목 앞에 초록색 체크 표시 확인
 
 -- Installation Complete > Start MySQL Workbench after Setup 체크 해제 > Finish 버튼 클릭
+
 
 -- ? MySQL 정상 작동 확인하기
 -- 시작 > mysql 검색 > [MySQL Workbench 8.0 CE] > 오른쪽 마우스 클릭 > 자세히 > 작업 표시줄에 고정
