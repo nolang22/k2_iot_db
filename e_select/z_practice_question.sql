@@ -51,16 +51,23 @@ AND GRADE NOT IN ('BRONZE', 'SILVER');
 
 -- 7. 최근에 구매한 회원과 구매일을 조회하시오. (가장 최근 구매일 기준 상위 3명)
 -- group by, 집계함수, order by, limit
-SELECT
-	NAME
+SELECT 
+	MEMBER_ID, MAX(PURCHASE_DATE) AS LAST_PURCHASE_DATE
 FROM
 	`PURCHASES`
 GROUP BY
-	PURCHASE_DATE DESC
+	MEMBER_ID	
 ORDER BY
-	PURCHASE_DATE
+	MAX(PURCHASE_DATE) DESC
 LIMIT 3;
 	
 
 -- 8. 회원별로 구매한 총 금액(amount의 합)을 조회하시오.
 -- group by, 집계함수
+SELECT 
+	MEMBER_ID, SUM(AMOUNT * QUANTITY)
+FROM
+	`PURCHASES` 
+GROUP BY
+	MEMBER_ID;
+    
