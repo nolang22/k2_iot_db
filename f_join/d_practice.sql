@@ -1,0 +1,73 @@
+### f_join >>> d_practice ###
+
+# korea_db에서 구매 금액(amount)가 가장 높은 회원의
+# member_id, name, 총구매 금액을 조회
+USE `KOREA_DB`;
+USE `KOREA_DB`;
+SELECT
+	M.MEMBER_ID, M.NAME, SUM(P.AMOUNT * P.QUANTITY) AS TOTAL_AMOUNT
+FROM
+	`MEMBERS` M
+	JOIN `PURCHASES` P
+    ON M.MEMBER_ID = P.MEMBER_ID
+GROUP BY
+	M.MEMBER_ID
+ORDER BY
+	TOTAL_AMOUNT DESC
+LIMIT 1;
+
+## BASEBALL_LEAGUE 사용 예제 (JOIN) ##
+USE	BASEBALL_LEAGUE;
+
+SELECT * FROM `PLAYERS`; -- PLAYER_ID, NAME, POSITION, BIRTH_DATE, TEMA_ID(FK)
+SELECT * FROM `TEAMS`; -- TEAM_ID(PK), NAME(팀 이름), CITY, FOUNDED_YEAR
+
+# 1. 내부 조인
+# : 타자인 선수오 ㅏ해당 선수가 속한 팀 이름 가져오기
+# - PLAYERS 테이블(선수 이름)
+# - TEAMS 테이블 (팀 이름)
+SELECT
+	P.NAME, T.NAME, P.POSITION
+FROM
+	`PLAYERS` P -- 기준 테이블
+    INNER JOIN `TEAMS` T
+    ON P.TEAM_ID = T.TEAM_ID
+WHERE
+	P.POSITION = '타자';
+    
+# 2. 1990년 이후 창단한 팀의 선수 목록 가져오기
+SELECT
+	T.NAME, P.NAME, T.FOUNDED_YEAR
+FROM
+	`TEAMS` T
+    JOIN `PLAYERS` P
+	ON T.TEAM_ID = P.TEAM_ID
+WHERE
+	T.FOUNDED_YEAR >= 1990; # DOSAN, SSG
+    
+# 2. 외부 조인
+# 1) 모든 팀과 그 팀에 속한 선수 목록 가져오기
+SELECT
+	T.NAME TEAM_NAME, P.NAME PALYER_NAME
+FROM
+	`TEAMS` T
+    LEFT JOIN `PLAYERS` P
+    ON T.TEAM_ID = P.TEAM_ID;
+    
+# 모든 팀과 해당 팀에 속한 타자 목록 가져오기
+SELECT
+	T.NAME TEAM_NAME, P.NAME PALYER_NAME, P.POSITION
+FROM
+	`TEAMS` T
+    LEFT JOIN `PLAYERS` P
+    ON T.TEAM_ID = P.TEAM_ID
+WHERE
+	P.POSITION - '타자';
+    
+# 2) 모든 선수와 해당 선수가 속한 팀 이름 가져오기
+SELECT
+	P.NAME PLAYER_NAME, T.NAME TEAM_NAME
+FROM
+	`PLAYERS` P
+    LEFT JOIN `TEAMS` T
+    ON T.TEAM_ID = P.TEAM_ID;
