@@ -119,7 +119,7 @@ select * from `example03`;
 use `company`;
 
 update `example02`
-set name = '권지지';
+set name = '물렁이';
 # Error Code: 1175. You are using safe update mode and you tried to update a table 
 #					without a WHERE that uses a KEY column. 
 # To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.
@@ -138,7 +138,7 @@ SET SQL_SAFE_UPDATES=1; # 1: 모드 사용
 SET SQL_SAFE_UPDATES=0; # 0: 모드 해제
 
 update `example02`
-set name="김동후"
+set name="독덩이"
 where id=1;
 
 select * from `example02`;

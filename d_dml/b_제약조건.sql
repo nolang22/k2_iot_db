@@ -13,7 +13,7 @@
     1) primary Key(기본 키)
     2) Foriegn Key(외래, 참조 키)
     3) Unique
-    4)check
+    4) check
     5) NOT NULL
     6) Default
     

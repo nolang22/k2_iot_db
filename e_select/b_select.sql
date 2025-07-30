@@ -106,12 +106,3 @@ select * from `members`;
 
 select distinct area_code from `members`;
 select distinct grade from `members`;
-
-
-
-
-
-
-
-
-

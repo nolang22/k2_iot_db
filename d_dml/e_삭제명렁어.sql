@@ -20,13 +20,14 @@ create table `big1` (select * from `world`.`city`, `sakila`.`actor`);
 create table `big2` (select * from `world`.`city`, `sakila`.`actor`);
 create table `big3` (select * from `world`.`city`, `sakila`.`actor`);
 
+
 -- 삭제 명령어 비교
 delete from `big1`; -- 5.406 초
 # : truncate 보다 느림! 
 select * from `big1`;
 
 drop table `big2`; -- 0.032 초 
--- select * from `big2`;
+select * from `big2`;
 
 truncate table `big3`; -- 0.016 초
 # : 테이블 형식은 남지만, 조건없이 삭제됨!
