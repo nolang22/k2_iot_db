@@ -83,10 +83,7 @@ select * from `student_course`;
 INSERT INTO `student_course` (course_id, course_name, course_instructor)
 VALUES
 	(104, '코리아', '조승승');
-
-
-
-
+# Error Code: 1364. Field 'student_id' doesn't have a default value
 
 # 2) 수정 이상
 # 오류 X, 각 행에서 조건을 찾아 일일이 변경해야 함 >> 메모리 부담 존재
@@ -181,6 +178,3 @@ SELECT * FROM student_course_connects;
 
 # cf) 베스트 프렉티스(best practice)
 # : 특정 문제를 해결하거나 목표를 당설함에 있어 가장 효과적이고 검증된 방법
-
-
-    
