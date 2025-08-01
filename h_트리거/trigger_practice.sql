@@ -14,22 +14,6 @@ create table if not exists `plaper_delete_los`(
 	log_id bigint auto_increment primary key,
     player_name  varchar(100),
     delete_taime datetime
-);
-
-drop trigger if exists after_player_delete;
-
-delimiter $$
-create trigger after_palyer_delete(
-	after delete
-    on players
-    for each row
-begin
-	insert into palyer_delete_logs (player_name, delete_time)
-    values
-		
-		
-    
-);
 
 
 -- 	문제2
