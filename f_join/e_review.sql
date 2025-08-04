@@ -39,7 +39,7 @@ WHERE
 # 3) from + join + where (+ group by)
 # : 필터링된 여성 회원 데이터를 지역 코드를 기준으로 그룹화
 SELECT 
-	M.area_code '지역 코드', SUM(P.amount * P.QUANTITY) '총 구매금액', COUNT(distinct M.member_id) '회원 수'
+	M.area_code '지역 코드', SUM(P.amount) '총 구매금액', COUNT(distinct M.member_id) '회원 수'
 FROM `members` M
 	JOIN `purchases` P
     ON M.member_id = P.member_id
@@ -52,7 +52,7 @@ GROUP BY
 
 # 4) 남은 데이터에서 HAVING 조건 부여 (그룹화 된 데이터에 조건식 사용)
 SELECT 
-	M.area_code '지역 코드', SUM(P.amount * P.QUANTITY) '총 구매금액', COUNT(distinct M.member_id) '회원 수'
+	M.area_code '지역 코드', SUM(P.amount) '총 구매금액', COUNT(distinct M.member_id) '회원 수'
 FROM `members` M
 	JOIN `purchases` P
     ON M.member_id = P.member_id
@@ -65,7 +65,7 @@ HAVING
 
 # + 추가 조건 order by, limit
 SELECT 
-	M.area_code '지역 코드', SUM(P.amount * P.QUANTITY) '총 구매금액', COUNT(distinct M.member_id) '회원 수'
+	M.area_code '지역 코드', SUM(P.amount) '총 구매금액', COUNT(distinct M.member_id) '회원 수'
 FROM `members` M
 	JOIN `purchases` P
     ON M.member_id = P.member_id
@@ -74,7 +74,7 @@ WHERE
 GROUP BY
 	M.area_code
 HAVING
-	sum(P.amount * P.QUANTITY) >= 30000
+	sum(P.amount) >= 30000
 ORDER BY
-	SUM(P.amount * P.QUANTITY) desc
+	SUM(P.amount) desc
 LIMIT 3;
