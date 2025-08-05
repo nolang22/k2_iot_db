@@ -36,7 +36,7 @@ CREATE TABLE `schoo1`.`student` (
 );
 
 -- cf) 문자 인코딩 추가 테이블
-# : UTF-8 문자 인코딩을 사용하여 한글 등의 묹 ㅏ정보를 올바르게 저장할 수 있도록 설정
+# : UTF-8 문자 인코딩을 사용하여 한글 등의 문자정보를 올바르게 저장할 수 있도록 설정
 CREATE TABLE `student_encoding` (
 	student_id int,			-- 학생 고유번호 (정수형)
     student_name char(8),	-- 학생 이름(문자, 최대 8자리)

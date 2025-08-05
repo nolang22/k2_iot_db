@@ -69,7 +69,7 @@ insert into `example02` (name)
 values
 	('불멍이'),
 	('전기돌이'),
-	('바람둥이'),
+	('바람둥이');
 select * from `example02`; 
 
 insert into `example02`

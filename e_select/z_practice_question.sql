@@ -65,7 +65,7 @@ LIMIT 3;
 -- 8. 회원별로 구매한 총 금액(amount의 합)을 조회하시오.
 -- group by, 집계함수
 SELECT 
-	MEMBER_ID, SUM(AMOUNT * QUANTITY)
+	MEMBER_ID, SUM(AMOUNT)
 FROM
 	`PURCHASES` 
 GROUP BY
